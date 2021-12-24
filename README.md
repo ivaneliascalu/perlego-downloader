@@ -1,29 +1,31 @@
 # Perlego EBook Downloader
 
-**For personal use only.** 
+**Solamente para uso personal.** 
 
-College students that have used Perlego before know that downloading EBooks for offline viewing is not easy. This repository contains scripts that help paying users download their EBooks without hassle. 
+Los estudiantes universitarios que han usado Perlego antes saben que descargar libros electrónicos para verlos sin conexión no es fácil. Este repositorio contiene scripts que ayudan a los usuarios que pagan a descargar sus libros electrónicos sin problemas.
 
-**For the most basic use case (Less than ~200 pages):** 
-1. Open Ebook in a browser (PDF and ePub supported). 
-1. Go to the page you want to start printing. 
-1. Open Chrome's developer console [via the UI](https://developers.google.com/web/tools/chrome-devtools/open#chrome).
-1. Paste the content of `PerlegoContent.js` into the console and press enter. 
-1. Enter `printPages(startPage, endPage)` into the console, where `startPage` is the page number you want to start printing on, and `endPage` is the page number of the page you want to end on. 
-1. Wait for the script to finish running, and you should be prompted to save the pdf. 
-1. If images fail to load, try waiting for them to load, then [printing again manually](https://support.google.com/chrome/answer/1069693). 
-1. Refresh the page to go back to Perlego's eReader. 
+** Para el caso de uso más básico (menos de ~ 200 páginas): **
+1. Abra Ebook en un navegador (compatible con PDF y ePub).
+2. Vaya a la página que desea comenzar a imprimir.
+3. Abra la consola de desarrollador de Chrome [a través de la interfaz de usuario] (https://developers.google.com/web/tools/chrome-devtools/open#chrome).
+4. Pegue el contenido de `PerlegoContent.js` en la consola y presione enter.
+5. Ingrese `printPages (startPage, endPage)` en la consola, donde `startPage` es el número de página en la que desea comenzar a imprimir y` endPage` es el número de página de la página en la que desea terminar.
+6. Espere a que la secuencia de comandos termine de ejecutarse y se le solicitará que guarde el pdf.
+7. Si las imágenes no se cargan, intente esperar a que se carguen y luego [imprimir de nuevo manualmente] (https://support.google.com/chrome/answer/1069693).
+8. Actualiza la página para volver al eReader de Perlego.
 
-If you want to download an entire textbook, it is recommended that you download the book in sections of around 150 pages to reduce the load on the browser. You could then combine the pdfs together using external tools such as `pdfunite`. 
 
-Please note that `PerlegoContent.js` does not save the menu(outline) of the pdf, for that you need to use `PerlegoOutline.js` as described below. 
 
-**(PDF Only) Procedure for downloading an entire textbook with the menu intact:** 
-1. Download all sections of the Ebook using `PerlegoContent.js`, make sure you name your pdfs `part_1.pdf`, `part_2.pdf`, etc. in the `Downloads` folder. 
-2. Make sure you have `poppler-utils` installed to combine the pdfs, and `fntsample` installed to add the outline. 
-3. Run `PerlegoOutline.js` from the "Table of contents" page of the Ebook (between "Book details" and "Related") in developer console. 
-4. (optional) You can customise the downloaded `outline.txt` according to [this specification](http://manpages.ubuntu.com/manpages/bionic/man1/pdfoutline.1.html). 
-5. In the `Downloads` folder, open a local terminal and run the following commands: 
+Si desea descargar un libro de texto completo, se recomienda que lo descargue en secciones de alrededor de 150 páginas para reducir la carga en el navegador. A continuación, puede combinar los archivos PDF utilizando herramientas externas como `pdfunite`.
+
+Tenga en cuenta que `PerlegoContent.js` no guarda el menú (esquema) del pdf, por lo que debe utilizar` PerlegoOutline.js` como se describe a continuación.
+
+** (Solo PDF) Procedimiento para descargar un libro de texto completo con el menú intacto: **
+1. Descargue todas las secciones del Ebook usando `PerlegoContent.js`, asegúrese de nombrar sus archivos PDF` part_1.pdf`, `part_2.pdf`, etc. en la carpeta` Descargas`.
+2. Asegúrese de tener instalado `poppler-utils` para combinar los archivos PDF, y` fntsample` instalado para agregar el esquema.
+3. Ejecute `PerlegoOutline.js` desde la página 'Tabla de contenido' del libro electrónico (entre 'Detalles del libro' y 'Relacionados') en la consola del desarrollador.
+4. (opcional) Puede personalizar el `outline.txt` descargado de acuerdo con [esta especificación] (http://manpages.ubuntu.com/manpages/bionic/man1/pdfoutline.1.html).
+5. En la carpeta `Descargas`, abra una terminal local y ejecute los siguientes comandos:
 
 	```
 	# Combine the pdfs into one
@@ -36,4 +38,4 @@ Please note that `PerlegoContent.js` does not save the menu(outline) of the pdf,
 	rm part_*.pdf temp.pdf outline.txt
 	```
 
-*Future: Add support to download ePub books as `.epub` instead of `.pdf`.*
+* Futuro: Agregue soporte para descargar libros ePub como `.epub` en lugar de` .pdf`. *
